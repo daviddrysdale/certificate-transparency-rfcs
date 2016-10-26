@@ -1981,27 +1981,29 @@ CachedInformationType Values" registry that was defined in [RFC7924].
 
 ## Hash Algorithms    {#hash_algorithms}
 
-IANA is asked to establish a registry of hash algorithm values, initially
+IANA is asked to establish a registry of allowed hash algorithm values, as a
+subset of the values defined in section 7.4.1.4.1 of [RFC5246], initially
 consisting of:
 
 |-------+---------------------|
 | Index | Hash                |
 |-------+---------------------|
-| 0     | SHA-256 [FIPS180-4] |
-| 255   | reserved            |
+| 4     | SHA-256 [FIPS180-4] |
 |-------+---------------------|
 
 ## Signature Algorithms    {#signature_algorithms}
 
-IANA is asked to establish a registry of signature algorithm values, initially
-consisting of:
+IANA is asked to establish a registry of signature algorithm values, as a
+subset of the hash and signature algorithm values defined in section 7.4.1.4.1
+of [RFC5246], together with further contraints on the signature algorithm.
+This registry initially consists of:
 
-|-------+-------------------------------------------------------------------------------------------------------------------------------------|
-| Index | Signature Algorithm                                                                                                                 |
-|-------+-------------------------------------------------------------------------------------------------------------------------------------|
-| 0     | deterministic ECDSA [RFC6979] using the NIST P-256 curve (Section D.1.2.3 of the Digital Signature Standard [DSS]) and HMAC-SHA256. |
-| 1     | RSA signatures (RSASSA-PKCS1-v1_5 with SHA-256, Section 8.2 of [RFC3447]) using a key of at least 2048 bits.                        |
-|-------+-------------------------------------------------------------------------------------------------------------------------------------|
+|------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------|
+| Hash Index | Signature Index | Signature Constraints                                                                                                               |
+|------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------|
+| 4          | 3               | Deterministic ECDSA [RFC6979] using the NIST P-256 curve (Section D.1.2.3 of the Digital Signature Standard [DSS]) and HMAC-SHA256. |
+| 4          | 1               | RSA signatures (RSASSA-PKCS1-v1_5 with SHA-256, Section 8.2 of [RFC3447]) using a key of at least 2048 bits.                        |
+|------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------|
 
 ## SCT Extensions    {#sct_extension_types}
 
